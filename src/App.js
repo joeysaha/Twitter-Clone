@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import Cookies from 'js-cookie'
-import { Route } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import Landing from './components/Landing/Landing'
 import Test from './components/Contexts/test'
 import './App.css';
@@ -20,9 +20,11 @@ const App = (props) => {
 
   return (
     <div className="App">
-      <Route path ='/' exact component={Landing} />
-      <Route path='/main' exact component={main} />
-      <Route path='/recover' exact component={main} />
+      <Switch>
+        <Route path='/' exact component={Landing} />
+        <Route path='/main' component={main} />
+        <Route path='/recover' exact component={main} />
+      </Switch>
     </div>
   );
 }
