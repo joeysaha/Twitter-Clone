@@ -1,7 +1,7 @@
 import React from 'react'
 
 const test = React.createContext({
-    value: 'nuttin'
+    value: 'nuttin new'
 })
 
 export default test
