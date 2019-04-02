@@ -1,10 +1,14 @@
 import React from 'react'
-
+import Button from '@material-ui/core/Button'
 const LoginButton = (props) => {
     return (
-        <div className='login-button'>
-            Hi I'm the button
-        </div>
+        <Button 
+            variant='outlined'
+            disabled={props.disabled}
+            onClick={props.onClick}
+        >
+            Login
+        </Button>
     )
 }
 

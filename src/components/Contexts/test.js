@@ -1,7 +1,9 @@
 import React from 'react'
 
 const test = React.createContext({
-    value: 'hi'
+    value: {
+        email: 'nuttin'
+    }
 })
 
 export default test

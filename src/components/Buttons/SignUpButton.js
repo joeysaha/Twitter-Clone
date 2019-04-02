@@ -1,10 +1,11 @@
 import React from 'react'
+import Button from '@material-ui/core/Button'
 
 const SignUpButton = (props) => {
     return (
-        <div className='signup-button'>
-            Hi I'm the signup button
-        </div>
+        <Button variant='outlined' color='primary' onClick={props.onClick}>
+            Sign Up
+        </Button>
     )
 }
 
