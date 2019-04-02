@@ -5,15 +5,9 @@ import Landing from './components/Landing/Landing'
 import Test from './components/Contexts/test'
 import './App.css';
 
-
-
-
-
 const App = (props) => {
 
   const test = useContext(Test)
-
-  var toRender;
 
   const main = () => {
     if (Cookies.get('bigboicred') !== undefined)
@@ -24,24 +18,19 @@ const App = (props) => {
     )
   }
 
-  toRender = main()
-
   useEffect(() => {
     if (Cookies.get('bigboicred') !== null) {
       test.value = Cookies.get('bigboicred')
-      toRender = <Landing />
     }
   }, [])
 
-  
-
-    return (
-      <div className="App">
-        <Route path ='/' exact component={Landing} />
-        <Route path='/main' exact component={main} />
-        <Route path='/recover' exact component={main} />
-      </div>
-    );
+  return (
+    <div className="App">
+      <Route path ='/' exact component={Landing} />
+      <Route path='/main' exact component={main} />
+      <Route path='/recover' exact component={main} />
+    </div>
+  );
 }
 
 export default App;
