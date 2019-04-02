@@ -1,28 +1,26 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, { useContext } from 'react';
+import { Route } from 'react-router-dom'
+import Landing from './components/Landing/Landing'
+import Test from './contexts/test'
 import './App.css';
 
-class App extends Component {
-  render() {
+const main = () => {
+
+  const test = useContext(Test)
+
+  const lol = test.value
+  return (
+    lol
+  )
+}
+
+const App = (props) => {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <Route path ='/' exact component={Landing} />
+        <Route path='/main' exact component={main} />
       </div>
     );
-  }
 }
 
 export default App;
