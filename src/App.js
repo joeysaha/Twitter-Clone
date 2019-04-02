@@ -1,18 +1,40 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
+import Cookies from 'js-cookie'
 import { Route } from 'react-router-dom'
 import Landing from './components/Landing/Landing'
 import Test from './components/Contexts/test'
 import './App.css';
 
-const main = () => {
-  const test = useContext(Test)
-  const lol = test.value.email
-  return (
-    lol
-  )
-}
+
+
+
 
 const App = (props) => {
+
+  const test = useContext(Test)
+
+  var toRender;
+
+  const main = () => {
+    if (Cookies.get('bigboicred') !== undefined)
+    test.value = Cookies.get('bigboicred')
+    Cookies.remove('bigboicred')
+    return (
+      test.value
+    )
+  }
+
+  toRender = main()
+
+  useEffect(() => {
+    if (Cookies.get('bigboicred') !== null) {
+      test.value = Cookies.get('bigboicred')
+      toRender = <Landing />
+    }
+  }, [])
+
+  
+
     return (
       <div className="App">
         <Route path ='/' exact component={Landing} />

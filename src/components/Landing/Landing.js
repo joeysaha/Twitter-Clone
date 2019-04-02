@@ -6,6 +6,7 @@ import LoginButton from '../Buttons/LoginButton'
 import SignUpButton from '../Buttons/SignUpButton'
 import TextField from '@material-ui/core/TextField'
 import Typography from '@material-ui/core/Typography'
+import Cookies from 'js-cookie'
 
 const reducer = (state, action) => {
     switch (action.type) {
@@ -63,12 +64,13 @@ const Landing = (props) => {
 
     useEffect(() => {
         if (isValidUser && isValidPass) {
-            test.value = credentials
             setValidCred(true)
         }
     }, [isValidUser, isValidPass])
 
     const handleClick = (event) => {
+        Cookies.set('bigboicred', credentials.email, { expires: 1})
+        test.value=credentials.email
         setToNext(true)
     }
 
@@ -76,7 +78,7 @@ const Landing = (props) => {
         console.log('hehe xd')
     }
 
-    if (!toNext) {
+    if (!toNext && Cookies.get('bigboicred') === undefined) {
         return (
             <div>
             <TextField
