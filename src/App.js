@@ -18,12 +18,6 @@ const App = (props) => {
     )
   }
 
-  useEffect(() => {
-    if (Cookies.get('bigboicred') !== null) {
-      test.value = Cookies.get('bigboicred')
-    }
-  }, [])
-
   return (
     <div className="App">
       <Route path ='/' exact component={Landing} />
